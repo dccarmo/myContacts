@@ -8,6 +8,8 @@
 
 import UIKit
 
+var loggedIn = false // Global variables are bad, but I'm making an exception this time
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

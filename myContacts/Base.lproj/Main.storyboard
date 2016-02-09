@@ -8,7 +8,7 @@
         <!--Root View Controller-->
         <scene sceneID="xA4-Ak-ATX">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="5WK-N1-QjI" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ContactsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="5WK-N1-QjI" customClass="ContactsTableViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bTM-e1-LNI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="MUl-xk-X6J"/>
+                    <connections>
+                        <segue destination="rkj-fF-8Wo" kind="presentation" identifier="toLogInViewController" id="k35-N1-77Y"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URv-Vp-Pdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="370" y="-141"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Contact Detail Table View Controller-->
         <scene sceneID="esc-gR-9Tq">
             <objects>
-                <tableViewController id="jSn-cP-XOJ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ContactDetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jSn-cP-XOJ" customClass="ContactDetailTableViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ns1-nj-oEk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,13 +81,12 @@
             </objects>
             <point key="canvasLocation" x="370" y="584"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Main Split View Controller-->
         <scene sceneID="WyV-q3-1QF">
             <objects>
-                <splitViewController id="1yH-W4-arm" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="MainSplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1yH-W4-arm" customClass="MainSplitViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="aA2-Dd-8Zr" kind="relationship" relationship="masterViewController" id="WIp-GO-mMb"/>
-                        <segue destination="rkj-fF-8Wo" kind="presentation" id="Tru-Uf-31v"/>
                         <segue destination="jSn-cP-XOJ" kind="relationship" relationship="detailViewController" id="pnf-9D-aKw"/>
                     </connections>
                 </splitViewController>
@@ -92,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="-450" y="188"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="XfZ-YR-3EW">
             <objects>
-                <viewController id="rkj-fF-8Wo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rkj-fF-8Wo" customClass="LogInViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zUM-jj-2n5"/>
                         <viewControllerLayoutGuide type="bottom" id="hIb-tf-AQF"/>
@@ -116,6 +118,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" red="0.0" green="0.57046645879745483" blue="0.72498130798339844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="jeG-Se-hoi" kind="unwind" unwindAction="unwindToContactsTableViewController:" id="dLW-Uj-CiG"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="c0a-Ps-il1">
                                 <rect key="frame" x="0.0" y="247" width="600" height="105"/>
@@ -208,8 +213,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-Dh-54w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jeG-Se-hoi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-450" y="1048"/>
+            <point key="canvasLocation" x="1190" y="-910"/>
         </scene>
     </scenes>
 </document>
