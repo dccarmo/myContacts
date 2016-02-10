@@ -19,6 +19,14 @@ class MainSplitViewController: UISplitViewController {
         self.view.insertSubview(self.sideMenuView, atIndex: 0)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !SessionManager.sharedInstance.loggedIn {
+            self.performSegueWithIdentifier(LogInViewController.leadingSegue, sender: self)
+        }
+    }
+    
     func toggleSideMenu() {
         UIView.animateWithDuration(0.3) {
             () -> Void in
@@ -26,6 +34,10 @@ class MainSplitViewController: UISplitViewController {
                 viewController.view.frame.origin.x += 100
             }
         }
+    }
+    
+    @IBAction func unwindToMainSplitViewController(segue: UIStoryboardSegue) {
+        
     }
     
 }

@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import RxSwift
+
+class LogInViewModel: NSObject {
+    
+    func logInWithEmail(email: String, password: String) -> Observable<Bool> {
+        return SessionManager.sharedInstance.logUserWithEmail(email, password: password)
+    }
+    
+}

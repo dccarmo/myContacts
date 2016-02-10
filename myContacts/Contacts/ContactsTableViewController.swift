@@ -23,17 +23,12 @@ class ContactsTableViewController: UITableViewController {
         self.tableView.dataSource = self.viewModel
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        if !loggedIn {
-            self.performSegueWithIdentifier(LogInViewController.leadingSegue, sender: self)
-            loggedIn = true
-            
-        } else {
-            self.reloadTableView()
+        _ = SessionManager.sharedInstance.rx_observe(Bool.self, "loggedIn").subscribeNext {
+            [weak self] (loggedIn) -> Void in
+            if loggedIn == true {
+                self!.reloadTableView()
+            }
         }
     }
     
@@ -55,10 +50,6 @@ class ContactsTableViewController: UITableViewController {
                 self!.tableView.tableHeaderView = self!.searchController.searchBar
                 self!.tableView.reloadData()
             })
-    }
-    
-    @IBAction func unwindToContactsTableViewController(segue: UIStoryboardSegue) {
-        
     }
     
     @IBAction func openMenuBarButtonItem(sender: AnyObject) {

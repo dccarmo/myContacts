@@ -32,6 +32,7 @@
 		D9C3BF371C6B51DE0036A80F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF321C6B51DE0036A80F /* RxSwift.framework */; };
 		D9C3BF381C6B51DE0036A80F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF331C6B51DE0036A80F /* SwiftyJSON.framework */; };
 		D9C3BF391C6B51DE0036A80F /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF341C6B51DE0036A80F /* WebImage.framework */; };
+		D9C3BF3F1C6BD34F0036A80F /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3BF3E1C6BD34F0036A80F /* SessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		D9C3BF321C6B51DE0036A80F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		D9C3BF331C6B51DE0036A80F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		D9C3BF341C6B51DE0036A80F /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
+		D9C3BF3E1C6BD34F0036A80F /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D9C3BEF81C6A09510036A80F /* AppDelegate.swift */,
 				D9C3BEFC1C6A09510036A80F /* Main.storyboard */,
 				D9C3BF241C6A1C140036A80F /* MainSplitViewController.swift */,
+				D9C3BF3E1C6BD34F0036A80F /* SessionManager.swift */,
 				D9C3BF2B1C6A1D5F0036A80F /* Extensions */,
 				D9C3BF261C6A1CF10036A80F /* Protocols */,
 				D9C3BF191C6A152A0036A80F /* Models */,
@@ -272,6 +275,7 @@
 			files = (
 				D9C3BF121C6A11D00036A80F /* LogInViewController.swift in Sources */,
 				D9C3BF141C6A11DA0036A80F /* LogInViewModel.swift in Sources */,
+				D9C3BF3F1C6BD34F0036A80F /* SessionManager.swift in Sources */,
 				D9C3BF181C6A12230036A80F /* ContactDetailViewModel.swift in Sources */,
 				D9C3BF0E1C6A11B60036A80F /* ContactsTableViewController.swift in Sources */,
 				D9C3BF2F1C6B4D540036A80F /* JSONParseable.swift in Sources */,

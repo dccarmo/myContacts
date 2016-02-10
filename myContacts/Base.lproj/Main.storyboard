@@ -49,7 +49,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="openMenuBarButtonItem" destination="Uds-8Y-KbN" id="BhL-lA-lw8"/>
-                        <segue destination="rkj-fF-8Wo" kind="presentation" identifier="toLogInViewController" id="k35-N1-77Y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URv-Vp-Pdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,6 +172,7 @@
                     <connections>
                         <outlet property="sideMenuView" destination="9Jw-lV-CUQ" id="0ZQ-8g-XHQ"/>
                         <segue destination="aA2-Dd-8Zr" kind="relationship" relationship="masterViewController" id="WIp-GO-mMb"/>
+                        <segue destination="rkj-fF-8Wo" kind="presentation" identifier="toLogInViewController" id="Zpr-Se-g8F"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miK-Gu-QQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,7 +219,7 @@
                                     <color key="titleColor" red="0.0" green="0.57046645879745483" blue="0.72498130798339844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jeG-Se-hoi" kind="unwind" unwindAction="unwindToContactsTableViewController:" id="dLW-Uj-CiG"/>
+                                    <action selector="logInButtonAction:" destination="rkj-fF-8Wo" eventType="touchUpInside" id="NXx-VT-ACk"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="c0a-Ps-il1">
@@ -311,11 +311,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="xhK-Ak-Op5"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="sbU-Gx-YgH" id="lXg-gI-kG3"/>
+                        <outlet property="passwordTextField" destination="iI8-sN-I0j" id="c9q-ms-O76"/>
+                        <segue destination="jeG-Se-hoi" kind="unwind" identifier="unwindSegue" unwindAction="unwindToMainSplitViewController:" id="Ao7-sl-eea"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-Dh-54w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jeG-Se-hoi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1190" y="658"/>
+            <point key="canvasLocation" x="-442" y="634"/>
         </scene>
     </scenes>
 </document>
