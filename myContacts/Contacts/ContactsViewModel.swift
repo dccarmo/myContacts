@@ -55,8 +55,8 @@ extension ContactsViewModel: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
         var contact: Contact
+        
         if self.filteredContacts != nil {
             contact = self.filteredContacts![indexPath.row]
             
@@ -64,9 +64,32 @@ extension ContactsViewModel: UITableViewDataSource {
             contact = self.contacts[indexPath.row]
         }
         
+        let tableViewCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
         tableViewCell.textLabel!.text = contact.name
         
         return tableViewCell
+    }
+    
+}
+
+extension ContactsViewModel: SegueProcessable {
+    
+    func prepareForSegue(segue: UIStoryboardSegue) {
+        if segue.identifier == ContactDetailTableViewController.leadingSegue {
+            let contactsTableViewConotroller = segue.sourceViewController as! ContactsTableViewController
+            let indexPath = contactsTableViewConotroller.tableView.indexPathForSelectedRow!
+            
+            var contact: Contact
+            if self.filteredContacts != nil {
+                contact = self.filteredContacts![indexPath.row]
+                
+            } else {
+                contact = self.contacts[indexPath.row]
+            }
+            
+            let contactDetailViewController = segue.destinationViewController as! ContactDetailTableViewController
+            contactDetailViewController.viewModel = ContactDetailViewModel(contact: contact)
+        }
     }
     
 }

@@ -37,6 +37,10 @@ class ContactsTableViewController: UITableViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.viewModel.prepareForSegue(segue)
+    }
+    
     func reloadTableView() {
         _ = self.viewModel.updateContacts().subscribe(
             onError: {
