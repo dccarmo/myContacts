@@ -18,12 +18,12 @@ struct Contact {
     let emails: [Email]
     let name: String
     let position: String
-//    let address: Address
-//    let companyDetails: Company
+    let addresses: [Address]
+    let companyDetails: Company
     let age: Int16
-    let phone: [Phone]
+    let phones: [Phone]
     
-    static func getAll() -> Observable<(Float, [Contact]?)> {
+    static func fetchAll() -> Observable<(Float, [Contact]?)> {
         return Observable.create({
             (observer) -> Disposable in
             Alamofire.request(.GET, "http://beta.json-generator.com/api/json/get/4yLVmeGYe").progress({
@@ -61,7 +61,34 @@ struct Contact {
 extension Contact: JSONParseable {
     
     static func parseJSON(contactJsonObject: JSON) -> Contact {
-        return Contact(imageUrl: contactJsonObject["imageUrl"].stringValue, homePage: contactJsonObject["homePage"].stringValue, emails: [], name: contactJsonObject["name"].stringValue, position: contactJsonObject["position"].stringValue, age: contactJsonObject["age"].int16Value, phone: [])
+        var emails = [Email]()
+        
+        for emailJsonObject in contactJsonObject["emails"].arrayValue {
+            emails.append(Email.parseJSON(emailJsonObject))
+        }
+        
+        var phones = [Phone]()
+        
+        for phoneJsonObject in contactJsonObject["phone"].arrayValue {
+            phones.append(Phone.parseJSON(phoneJsonObject))
+        }
+        
+        var addresses = [Address]()
+        
+        for addressJsonObject in contactJsonObject["address"].arrayValue {
+            addresses.append(Address.parseJSON(addressJsonObject))
+        }
+        
+        return Contact(
+            imageUrl: contactJsonObject["imageUrl"].stringValue,
+            homePage: contactJsonObject["homePage"].stringValue,
+            emails: emails,
+            name: contactJsonObject["name"].stringValue,
+            position: contactJsonObject["position"].stringValue,
+            addresses: addresses,
+            companyDetails: Company.parseJSON(contactJsonObject["companyDetails"]),
+            age: contactJsonObject["age"].int16Value,
+            phones: phones)
     }
     
 }

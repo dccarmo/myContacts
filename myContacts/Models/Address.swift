@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Address {
     
@@ -17,5 +18,20 @@ struct Address {
     let country: String
     let city: String
     let state: String
+    
+}
+
+extension Address: JSONParseable {
+    
+    static func parseJSON(addressJsonObject: JSON) -> Address {
+        return Address(
+            address1: addressJsonObject["address1"].stringValue,
+            address2: addressJsonObject["address2"].stringValue,
+            address3: addressJsonObject["address3"].stringValue,
+            zipcode: addressJsonObject["zipcode"].stringValue,
+            country: addressJsonObject["country"].stringValue,
+            city: addressJsonObject["city"].stringValue,
+            state: addressJsonObject["state"].stringValue)
+    }
     
 }

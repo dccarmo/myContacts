@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Phone {
     
@@ -17,5 +18,15 @@ struct Phone {
     
     let number: String
     let type: Type
+    
+}
+
+extension Phone: JSONParseable {
+    
+    static func parseJSON(phoneJsonObject: JSON) -> Phone {
+        return Phone(
+            number: phoneJsonObject["number"].stringValue,
+            type: Type(rawValue: phoneJsonObject["type"].stringValue)!)
+    }
     
 }

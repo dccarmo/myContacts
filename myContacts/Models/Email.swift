@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Email {
     
@@ -20,10 +21,12 @@ struct Email {
     
 }
 
-//extension Email: JSONParseable {
-//    
-//    func parseJSON(JSON: [String : AnyObject?]) -> Email {
-//        
-//    }
-//    
-//}
+extension Email: JSONParseable {
+    
+    static func parseJSON(emailJsonObject: JSON) -> Email {
+        return Email(
+            email: emailJsonObject["email"].stringValue,
+            label: Label(rawValue: emailJsonObject["label"].stringValue)!)
+    }
+    
+}

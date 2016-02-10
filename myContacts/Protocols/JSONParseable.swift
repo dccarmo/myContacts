@@ -11,6 +11,6 @@ import SwiftyJSON
 
 protocol JSONParseable {
     
-    static func parseJSON(JSON: JSON) -> Self
+    static func parseJSON(jsonObject: JSON) -> Self
     
 }

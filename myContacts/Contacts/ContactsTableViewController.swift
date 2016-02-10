@@ -20,9 +20,14 @@ class ContactsTableViewController: UITableViewController {
             loggedIn = true
             
         } else {
-            _ = Contact.getAll().subscribeNext({
-                (data) -> Void in
-                
+            _ = Contact.fetchAll().subscribeNext({
+                (update) -> Void in
+                if update.0 < 1 {
+                    print("Progress: \(update.0)")
+                    
+                } else if update.1 != nil {
+                    print(update.1!)
+                }
             })
         }
     }
