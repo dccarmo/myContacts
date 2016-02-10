@@ -12,6 +12,7 @@ import RxSwift
 class ContactsViewModel: NSObject {
     
     var contacts = [Contact]()
+    var filteredContacts: [Contact]?
     
     func updateContacts() -> Observable<Float> {
         return Observable.create({
@@ -33,17 +34,35 @@ class ContactsViewModel: NSObject {
         })
     }
     
+    func filterContactsWithSearchText(searchText: String) {
+        if searchText.characters.count == 0 {
+            self.filteredContacts = nil
+            
+        } else {
+            self.filteredContacts = self.contacts.filter({
+                (contact) -> Bool in
+                return contact.name.lowercaseString.containsString(searchText.lowercaseString)
+            })
+        }
+    }
+    
 }
 
 extension ContactsViewModel: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.contacts.count
+        return self.filteredContacts != nil ? self.filteredContacts!.count : self.contacts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let tableViewCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
-        let contact = self.contacts[indexPath.row]
+        var contact: Contact
+        if self.filteredContacts != nil {
+            contact = self.filteredContacts![indexPath.row]
+            
+        } else {
+            contact = self.contacts[indexPath.row]
+        }
         
         tableViewCell.textLabel!.text = contact.name
         
