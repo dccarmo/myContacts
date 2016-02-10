@@ -7,10 +7,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ContactsTableViewController: UITableViewController {
     
+    let viewModel = ContactsViewModel()
+    
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var openMenuBarButtonItem: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableView.dataSource = self.viewModel
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -20,15 +31,20 @@ class ContactsTableViewController: UITableViewController {
             loggedIn = true
             
         } else {
-            _ = Contact.fetchAll().subscribeNext({
-                (update) -> Void in
-                if update.0 < 1 {
-                    print("Progress: \(update.0)")
+            _ = self.viewModel.updateContacts().subscribe(onNext: {
+                [weak self] (progress) -> Void in
+                    self!.progressView.hidden = false
+                    self!.progressView.progress = progress
+                
+                }, onError: {
+                    (error) -> Void in
+                    self!.progressView.hidden = true
                     
-                } else if update.1 != nil {
-                    print(update.1!)
-                }
-            })
+                }, onCompleted: {
+                    () -> Void in
+                    self!.progressView.hidden = true
+                    self!.tableView.reloadData()
+                })
         }
     }
     
