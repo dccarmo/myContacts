@@ -18,6 +18,12 @@ class ContactsTableViewController: UITableViewController {
         if !loggedIn {
             self.performSegueWithIdentifier(LogInViewController.leadingSegue, sender: self)
             loggedIn = true
+            
+        } else {
+            _ = Contact.getAll().subscribeNext({
+                (data) -> Void in
+                
+            })
         }
     }
     

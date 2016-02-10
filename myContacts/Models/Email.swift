@@ -19,3 +19,11 @@ struct Email {
     let label: Label
     
 }
+
+//extension Email: JSONParseable {
+//    
+//    func parseJSON(JSON: [String : AnyObject?]) -> Email {
+//        
+//    }
+//    
+//}
