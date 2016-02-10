@@ -26,6 +26,12 @@
 		D9C3BF291C6A1D000036A80F /* SegueProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3BF271C6A1D000036A80F /* SegueProcessable.swift */; };
 		D9C3BF2A1C6A1D000036A80F /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3BF281C6A1D000036A80F /* StoryboardIdentifiable.swift */; };
 		D9C3BF2D1C6A1D680036A80F /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3BF2C1C6A1D680036A80F /* UIViewControllerExtension.swift */; };
+		D9C3BF2F1C6B4D540036A80F /* JSONParseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3BF2E1C6B4D540036A80F /* JSONParseable.swift */; };
+		D9C3BF351C6B51DE0036A80F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF301C6B51DE0036A80F /* Alamofire.framework */; };
+		D9C3BF361C6B51DE0036A80F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF311C6B51DE0036A80F /* RxCocoa.framework */; };
+		D9C3BF371C6B51DE0036A80F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF321C6B51DE0036A80F /* RxSwift.framework */; };
+		D9C3BF381C6B51DE0036A80F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF331C6B51DE0036A80F /* SwiftyJSON.framework */; };
+		D9C3BF391C6B51DE0036A80F /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C3BF341C6B51DE0036A80F /* WebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		D9C3BF271C6A1D000036A80F /* SegueProcessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueProcessable.swift; sourceTree = "<group>"; };
 		D9C3BF281C6A1D000036A80F /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
 		D9C3BF2C1C6A1D680036A80F /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D9C3BF2E1C6B4D540036A80F /* JSONParseable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParseable.swift; sourceTree = "<group>"; };
+		D9C3BF301C6B51DE0036A80F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D9C3BF311C6B51DE0036A80F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		D9C3BF321C6B51DE0036A80F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		D9C3BF331C6B51DE0036A80F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		D9C3BF341C6B51DE0036A80F /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +69,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9C3BF351C6B51DE0036A80F /* Alamofire.framework in Frameworks */,
+				D9C3BF361C6B51DE0036A80F /* RxCocoa.framework in Frameworks */,
+				D9C3BF371C6B51DE0036A80F /* RxSwift.framework in Frameworks */,
+				D9C3BF381C6B51DE0036A80F /* SwiftyJSON.framework in Frameworks */,
+				D9C3BF391C6B51DE0036A80F /* WebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +83,7 @@
 		D9C3BEEC1C6A09510036A80F = {
 			isa = PBXGroup;
 			children = (
+				D9C3BF3A1C6B51E20036A80F /* Frameworks */,
 				D9C3BEF71C6A09510036A80F /* myContacts */,
 				D9C3BEF61C6A09510036A80F /* Products */,
 			);
@@ -134,6 +152,7 @@
 			children = (
 				D9C3BF271C6A1D000036A80F /* SegueProcessable.swift */,
 				D9C3BF281C6A1D000036A80F /* StoryboardIdentifiable.swift */,
+				D9C3BF2E1C6B4D540036A80F /* JSONParseable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -146,6 +165,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D9C3BF3A1C6B51E20036A80F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9C3BF301C6B51DE0036A80F /* Alamofire.framework */,
+				D9C3BF311C6B51DE0036A80F /* RxCocoa.framework */,
+				D9C3BF321C6B51DE0036A80F /* RxSwift.framework */,
+				D9C3BF331C6B51DE0036A80F /* SwiftyJSON.framework */,
+				D9C3BF341C6B51DE0036A80F /* WebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +187,7 @@
 				D9C3BEF11C6A09510036A80F /* Sources */,
 				D9C3BEF21C6A09510036A80F /* Frameworks */,
 				D9C3BEF31C6A09510036A80F /* Resources */,
+				D9C3BF3B1C6B51FB0036A80F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -212,6 +244,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D9C3BF3B1C6B51FB0036A80F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/WebImage.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D9C3BEF11C6A09510036A80F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +274,7 @@
 				D9C3BF141C6A11DA0036A80F /* LogInViewModel.swift in Sources */,
 				D9C3BF181C6A12230036A80F /* ContactDetailViewModel.swift in Sources */,
 				D9C3BF0E1C6A11B60036A80F /* ContactsTableViewController.swift in Sources */,
+				D9C3BF2F1C6B4D540036A80F /* JSONParseable.swift in Sources */,
 				D9C3BF2D1C6A1D680036A80F /* UIViewControllerExtension.swift in Sources */,
 				D9C3BF231C6A1B130036A80F /* Phone.swift in Sources */,
 				D9C3BF251C6A1C140036A80F /* MainSplitViewController.swift in Sources */,
@@ -343,6 +397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = myContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.dcarmo.myContacts;
@@ -355,6 +413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = myContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.dcarmo.myContacts;
