@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D951EE131C6BF61900E979C5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D951EE121C6BF61900E979C5 /* StringExtension.swift */; };
 		D9C3BEF91C6A09510036A80F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3BEF81C6A09510036A80F /* AppDelegate.swift */; };
 		D9C3BEFE1C6A09510036A80F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C3BEFC1C6A09510036A80F /* Main.storyboard */; };
 		D9C3BF001C6A09510036A80F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C3BEFF1C6A09510036A80F /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D951EE121C6BF61900E979C5 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D9C3BEF51C6A09510036A80F /* myContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C3BEF81C6A09510036A80F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9C3BEFD1C6A09510036A80F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D9C3BF2C1C6A1D680036A80F /* UIViewControllerExtension.swift */,
+				D951EE121C6BF61900E979C5 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				D9C3BF161C6A121B0036A80F /* ContactDetailTableViewController.swift in Sources */,
 				D9C3BF101C6A11BF0036A80F /* ContactsViewModel.swift in Sources */,
 				D9C3BEF91C6A09510036A80F /* AppDelegate.swift in Sources */,
+				D951EE131C6BF61900E979C5 /* StringExtension.swift in Sources */,
 				D9C3BF291C6A1D000036A80F /* SegueProcessable.swift in Sources */,
 				D9C3BF2A1C6A1D000036A80F /* StoryboardIdentifiable.swift in Sources */,
 			);
@@ -448,6 +452,7 @@
 				D9C3BF091C6A09510036A80F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
