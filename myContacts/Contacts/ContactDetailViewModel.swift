@@ -25,12 +25,13 @@ extension ContactDetailViewModel: UITableViewDataSource {
         case Phones = 0
         case Emails = 1
         case HomePage = 2
-        case CompanyDetails = 3
-        case Position = 4
+        case Address = 3
+        case CompanyDetails = 4
+        case Position = 5
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,7 +42,13 @@ extension ContactDetailViewModel: UITableViewDataSource {
         case .Emails:
             return self.contact.emails.count
             
-        case .HomePage, .CompanyDetails, .Position:
+        case .Address:
+            return 7
+            
+        case .CompanyDetails:
+            return 2
+            
+        case .HomePage, .Position:
             return 1
         }
     }
@@ -62,11 +69,16 @@ extension ContactDetailViewModel: UITableViewDataSource {
             
         case .Position:
             return "Position"
+            
+        case .Address:
+            return "Address"
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let tableViewCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
+        
+        tableViewCell.detailTextLabel!.text = ""
         
         switch Section(rawValue: indexPath.section)! {
         case .Phones:
@@ -81,11 +93,56 @@ extension ContactDetailViewModel: UITableViewDataSource {
             tableViewCell.textLabel!.text = self.contact.homePage
             
         case .CompanyDetails:
-            tableViewCell.textLabel!.text = self.contact.companyDetails.name
-            tableViewCell.detailTextLabel!.text = self.contact.companyDetails.location
+            switch indexPath.row {
+            case 0:
+                tableViewCell.textLabel!.text = "Name"
+                tableViewCell.detailTextLabel!.text = self.contact.companyDetails.name
+                
+            case 1:
+                tableViewCell.textLabel!.text = "Location"
+                tableViewCell.detailTextLabel!.text = self.contact.companyDetails.location
+                
+            default:
+                break
+            }
             
         case .Position:
             tableViewCell.textLabel!.text = self.contact.position
+            
+        case .Address:
+            switch indexPath.row {
+            case 0:
+                tableViewCell.textLabel!.text = "Address 1"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].address1
+                
+            case 1:
+                tableViewCell.textLabel!.text = "Address 2"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].address2
+                
+            case 2:
+                tableViewCell.textLabel!.text = "Address 3"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].address3
+                
+            case 3:
+                tableViewCell.textLabel!.text = "Zipcode"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].zipcode
+                
+            case 4:
+                tableViewCell.textLabel!.text = "City"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].city
+                
+            case 5:
+                tableViewCell.textLabel!.text = "State"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].state
+                
+            case 6:
+                tableViewCell.textLabel!.text = "Country"
+                tableViewCell.detailTextLabel!.text = self.contact.addresses[0].country
+                
+            default:
+                break
+            }
+            
         }
         
         return tableViewCell

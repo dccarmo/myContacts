@@ -45,7 +45,11 @@ class ContactsTableViewController: UITableViewController {
         _ = self.viewModel.updateContacts().subscribe(
             onError: {
                 [weak self] (error) -> Void in
-            
+                let alertController = UIAlertController(title: "Error while fetching contacts", message: nil, preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                
+                self!.presentViewController(alertController, animated: true, completion: nil)
+                
             }, onCompleted: {
                 [weak self] () -> Void in
                 self!.tableView.tableHeaderView = self!.searchController.searchBar
@@ -60,6 +64,12 @@ class ContactsTableViewController: UITableViewController {
     @IBAction func openMenuBarButtonItem(sender: AnyObject) {
         let mainSplitViewController = self.splitViewController as! MainSplitViewController
         mainSplitViewController.toggleSideMenu()
+    }
+    
+    //MARK:- UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.searchController.active = false
     }
 }
 
