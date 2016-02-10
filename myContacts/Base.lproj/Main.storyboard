@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="xA4-Ak-ATX">
             <objects>
                 <tableViewController storyboardIdentifier="ContactsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="5WK-N1-QjI" customClass="ContactsTableViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,8 +28,15 @@
                             <outlet property="delegate" destination="5WK-N1-QjI" id="Jpn-R5-3dV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="MUl-xk-X6J"/>
+                    <navigationItem key="navigationItem" title="Title" id="TLv-OG-SDD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Uds-8Y-KbN">
+                            <connections>
+                                <action selector="openMenuBarButtonItem:" destination="5WK-N1-QjI" id="Qos-WK-9Uy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="openMenuBarButtonItem" destination="Uds-8Y-KbN" id="BhL-lA-lw8"/>
                         <segue destination="rkj-fF-8Wo" kind="presentation" identifier="toLogInViewController" id="k35-N1-77Y"/>
                     </connections>
                 </tableViewController>
@@ -86,11 +93,27 @@
             <objects>
                 <splitViewController storyboardIdentifier="MainSplitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1yH-W4-arm" customClass="MainSplitViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
+                        <outlet property="sideMenuView" destination="9Jw-lV-CUQ" id="0ZQ-8g-XHQ"/>
                         <segue destination="aA2-Dd-8Zr" kind="relationship" relationship="masterViewController" id="WIp-GO-mMb"/>
                         <segue destination="jSn-cP-XOJ" kind="relationship" relationship="detailViewController" id="pnf-9D-aKw"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miK-Gu-QQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="9Jw-lV-CUQ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpq-sp-kg0">
+                            <rect key="frame" x="20" y="20" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="fpq-sp-kg0" firstAttribute="leading" secondItem="9Jw-lV-CUQ" secondAttribute="leading" constant="20" id="Wet-IP-B5h"/>
+                        <constraint firstItem="fpq-sp-kg0" firstAttribute="top" secondItem="9Jw-lV-CUQ" secondAttribute="top" constant="20" id="ykR-RK-Hmk"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="-450" y="188"/>
         </scene>
@@ -215,7 +238,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktb-Dh-54w" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jeG-Se-hoi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1190" y="-910"/>
+            <point key="canvasLocation" x="1190" y="658"/>
         </scene>
     </scenes>
 </document>

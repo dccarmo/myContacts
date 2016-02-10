@@ -10,6 +10,8 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController {
     
+    @IBOutlet weak var openMenuBarButtonItem: UIBarButtonItem!
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -23,4 +25,8 @@ class ContactsTableViewController: UITableViewController {
         
     }
     
+    @IBAction func openMenuBarButtonItem(sender: AnyObject) {
+        let mainSplitViewController = self.splitViewController as! MainSplitViewController
+        mainSplitViewController.toggleSideMenu()
+    }
 }

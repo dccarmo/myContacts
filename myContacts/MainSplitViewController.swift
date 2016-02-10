@@ -10,10 +10,22 @@ import UIKit
 
 class MainSplitViewController: UISplitViewController {
     
+    @IBOutlet var sideMenuView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
+        self.view.insertSubview(self.sideMenuView, atIndex: 0)
+    }
+    
+    func toggleSideMenu() {
+        UIView.animateWithDuration(0.3) {
+            () -> Void in
+            for viewController in self.viewControllers {
+                viewController.view.frame.origin.x += 100
+            }
+        }
     }
     
 }
