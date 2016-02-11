@@ -30,4 +30,8 @@ class SessionManager: NSObject {
         })
     }
     
+    func logOut() {
+        self.loggedIn = false
+    }
+    
 }

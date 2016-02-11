@@ -43,6 +43,11 @@ class ContactsViewModel: NSObject {
         })
     }
     
+    func clearContacts() {
+        self.contacts.removeAll()
+        self.contactSections.removeAll()
+    }
+    
     func filterContactsWithSearchText(searchText: String) {
         if searchText.characters.count == 0 {
             self.filteredContacts = nil

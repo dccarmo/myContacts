@@ -26,8 +26,11 @@ class ContactsTableViewController: UITableViewController {
         
         _ = SessionManager.sharedInstance.rx_observe(Bool.self, "loggedIn").subscribeNext {
             [weak self] (loggedIn) -> Void in
-            if loggedIn == true {
+            if loggedIn! {
                 self!.reloadTableView()
+                
+            } else {
+                self!.clearTableView()
             }
         }
     }
@@ -50,6 +53,12 @@ class ContactsTableViewController: UITableViewController {
                 self!.tableView.tableHeaderView = self!.searchController.searchBar
                 self!.tableView.reloadData()
             })
+    }
+    
+    func clearTableView() {
+        self.viewModel.clearContacts()
+        self.tableView.tableHeaderView = nil
+        self.tableView.reloadData()
     }
     
     @IBAction func openMenuBarButtonItem(sender: AnyObject) {

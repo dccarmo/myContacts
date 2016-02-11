@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Contacts-->
         <scene sceneID="xA4-Ak-ATX">
             <objects>
                 <tableViewController storyboardIdentifier="ContactsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="5WK-N1-QjI" customClass="ContactsTableViewController" customModule="myContacts" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,8 +40,8 @@
                             <outlet property="delegate" destination="5WK-N1-QjI" id="Jpn-R5-3dV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="TLv-OG-SDD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Uds-8Y-KbN">
+                    <navigationItem key="navigationItem" title="Contacts" id="TLv-OG-SDD">
+                        <barButtonItem key="leftBarButtonItem" image="hamburguer_menu" id="Uds-8Y-KbN">
                             <connections>
                                 <action selector="openMenuBarButtonItem:" destination="5WK-N1-QjI" id="Qos-WK-9Uy"/>
                             </connections>
@@ -180,15 +180,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpq-sp-kg0">
-                            <rect key="frame" x="20" y="20" width="46" height="30"/>
-                            <state key="normal" title="Button"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpq-sp-kg0">
+                            <rect key="frame" x="30" y="30" width="63" height="32"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                            <state key="normal" title="LOG OUT"/>
+                            <connections>
+                                <action selector="logOutButtonAction:" destination="1yH-W4-arm" eventType="touchUpInside" id="Fw5-lg-Ywd"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.062760416669999999" green="0.57447916669999999" blue="0.7191623264" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="fpq-sp-kg0" firstAttribute="leading" secondItem="9Jw-lV-CUQ" secondAttribute="leading" constant="20" id="Wet-IP-B5h"/>
-                        <constraint firstItem="fpq-sp-kg0" firstAttribute="top" secondItem="9Jw-lV-CUQ" secondAttribute="top" constant="20" id="ykR-RK-Hmk"/>
+                        <constraint firstItem="fpq-sp-kg0" firstAttribute="leading" secondItem="9Jw-lV-CUQ" secondAttribute="leading" constant="30" id="Wet-IP-B5h"/>
+                        <constraint firstItem="fpq-sp-kg0" firstAttribute="top" secondItem="9Jw-lV-CUQ" secondAttribute="top" constant="30" id="ykR-RK-Hmk"/>
                     </constraints>
                 </view>
             </objects>
@@ -323,4 +327,7 @@
             <point key="canvasLocation" x="-442" y="634"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hamburguer_menu" width="21" height="15"/>
+    </resources>
 </document>
