@@ -9,6 +9,8 @@
 import Foundation
 import RxSwift
 
+ // Fake Session Manager
+
 class SessionManager: NSObject {
     
     static let sharedInstance = SessionManager()
@@ -18,8 +20,6 @@ class SessionManager: NSObject {
     func logUserWithEmail(email: String, password: String) -> Observable<Bool> {
         return Observable.create({
             [weak self] (observer) -> Disposable in
-            
-            // Fake
             
             self!.loggedIn = true
             

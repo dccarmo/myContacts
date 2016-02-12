@@ -11,6 +11,8 @@ import RxSwift
 
 class LogInViewModel: NSObject {
     
+    // Simulation of a log in flow
+    
     func logInWithEmail(email: String, password: String) -> Observable<Bool> {
         return SessionManager.sharedInstance.logUserWithEmail(email, password: password)
     }

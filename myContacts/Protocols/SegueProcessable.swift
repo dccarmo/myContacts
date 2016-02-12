@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Indicates that the object can process segues (useful for View Models)
+
 protocol SegueProcessable {
     
     func prepareForSegue(segue: UIStoryboardSegue)

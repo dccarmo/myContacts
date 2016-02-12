@@ -39,6 +39,10 @@ class ContactsTableViewController: UITableViewController {
         self.viewModel.prepareForSegue(segue)
     }
     
+    /**
+     Reloads the Table View with new Contacts
+     */
+    
     func reloadTableView() {
         _ = self.viewModel.updateContacts().subscribe(
             onError: {
@@ -54,6 +58,10 @@ class ContactsTableViewController: UITableViewController {
                 self!.tableView.reloadData()
             })
     }
+    
+    /**
+     Clears the Table View removing all rows (useful when user logs out)
+     */
     
     func clearTableView() {
         self.viewModel.clearContacts()

@@ -16,6 +16,9 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func logInButtonAction(sender: AnyObject) {
+        
+        // Simulation of a log in flow
+        
         _ = self.viewModel.logInWithEmail(self.emailTextField.text!, password: self.passwordTextField.text!).subscribeNext {
             [weak self] (loggedIn) -> Void in
             if loggedIn {

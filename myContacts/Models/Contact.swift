@@ -23,6 +23,12 @@ struct Contact {
     let age: Int16
     let phones: [Phone]
     
+    /**
+     Fetches all Contacts from the static URL
+     
+     - returns: Observable with Progress and an array of Contacts as types
+     */
+    
     static func fetchAll() -> Observable<(Float, [Contact]?)> {
         return Observable.create({
             (observer) -> Disposable in

@@ -9,6 +9,8 @@
 import UIKit
 import RxSwift
 
+// A structure to better accomodate the Table View sections data
+
 struct ContactsSection {
     var contacts: [Contact]
     var firstLetter: String
@@ -18,7 +20,13 @@ class ContactsViewModel: NSObject {
     
     var contactSections = [ContactsSection]()
     var contacts = [Contact]()
-    var filteredContacts: [Contact]?
+    var filteredContacts: [Contact]? // Used when the user is searching for a contact
+    
+    /**
+     Updates the Contacts array
+     
+     - returns: Observable with progress
+     */
     
     func updateContacts() -> Observable<Float> {
         return Observable.create({
@@ -43,10 +51,20 @@ class ContactsViewModel: NSObject {
         })
     }
     
+    /**
+     Just clears the Contacts and Contacts Section arrays
+     */
+    
     func clearContacts() {
         self.contacts.removeAll()
         self.contactSections.removeAll()
     }
+    
+    /**
+     Function that filters the Contacts with a given text (considering only lowercase text)
+     
+     - parameter searchText: text that's being searched
+     */
     
     func filterContactsWithSearchText(searchText: String) {
         if searchText.characters.count == 0 {
@@ -61,6 +79,10 @@ class ContactsViewModel: NSObject {
             self.createContactsSections()
         }
     }
+    
+    /**
+     Given a Contacts array, it populates the Contacts Section array
+     */
     
     private func createContactsSections() {
         var contacts: [Contact]
@@ -91,6 +113,14 @@ class ContactsViewModel: NSObject {
         }
         
     }
+    
+    /**
+     Extract all the first letters from Contacts array and returns an array of first letters (important for Contacts Section)
+     
+     - parameter contacts: Contacts array (can be the full or filtered)
+     
+     - returns: Array of Strings containing the first letters
+     */
     
     private func createSectionIndexTitlesWithContacts(contacts: [Contact]) -> [String] {
         var sectionIndexTitles = [String]()

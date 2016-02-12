@@ -21,10 +21,6 @@ class ContactDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.tableView.dataSource = self.viewModel
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
         self.profileImageView.sd_setImageWithURL(NSURL(string: self.viewModel.contact.imageUrl))
         self.nameLabel.text = self.viewModel.contact.name

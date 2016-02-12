@@ -10,6 +10,8 @@ import Foundation
 
 extension String {
     
+    // Useful to create indexed Table View in Contacts Table View Controller
+    
     var firstCharacter: String? {
         guard self.characters.first != nil else {
             return nil

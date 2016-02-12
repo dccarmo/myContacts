@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Neat protocol to avoid mistakes while dealing with Storyboards and segues
+
 protocol StoryboardIdentifiable {
     
     static var storyboardName: String { get }

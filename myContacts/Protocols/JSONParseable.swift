@@ -9,6 +9,8 @@
 import Foundation
 import SwiftyJSON
 
+// Nice to have Protocol that helps separates which object can be created from a JSON object
+
 protocol JSONParseable {
     
     static func parseJSON(jsonObject: JSON) -> Self

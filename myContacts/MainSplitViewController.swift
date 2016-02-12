@@ -20,12 +20,9 @@ class MainSplitViewController: UISplitViewController {
         
         self.delegate = self
         self.view.insertSubview(self.sideMenuView, atIndex: 0)
-        self.sideMenuView.frame = CGRect(x: 0, y: 0, width: 300, height: UIScreen.mainScreen().bounds.size.height)
+        self.sideMenuView.frame = CGRect(x: 0, y: 0, width: 200, height: UIScreen.mainScreen().bounds.size.height)
         
-        _ = UIScreen.mainScreen().rx_observe(CGRect.self, "bounds").subscribeNext {
-            [weak self] (bounds) -> Void in
-            self!.sideMenuView.frame = CGRect(x: 0, y: 0, width: 200, height: bounds!.size.height)
-        }
+        // Observes the 'loggedIn' variable and reacts presenting the Log In screen if necessary
         
         _ = SessionManager.sharedInstance.rx_observe(Bool.self, "loggedIn").skip(1).subscribeNext {
             [weak self] (loggedIn) -> Void in
@@ -38,10 +35,16 @@ class MainSplitViewController: UISplitViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Has to be on viewDidAppear: to avoid issues view hierarchy
+        
         if !SessionManager.sharedInstance.loggedIn {
             self.performSegueWithIdentifier(LogInViewController.leadingSegue, sender: self)
         }
     }
+    
+    /**
+     Open and closes the side menu
+     */
     
     func toggleSideMenu() {
         UIView.animateWithDuration(0.3,
@@ -64,6 +67,8 @@ class MainSplitViewController: UISplitViewController {
     @IBAction func logOutButtonAction(sender: AnyObject) {
         self.toggleSideMenu()
         
+        // Required to clear DetailViewController when using iPhone 6s/iPad
+        
         if self.viewControllers.count > 1 {
             self.viewControllers.removeLast()
         }
@@ -78,6 +83,8 @@ class MainSplitViewController: UISplitViewController {
 }
 
 extension MainSplitViewController: UISplitViewControllerDelegate {
+    
+    // Small hack to allow the UISplitViewController to start with the MainViewController first
     
     func splitViewController(splitViewController: UISplitViewController,
         collapseSecondaryViewController secondaryViewController: UIViewController,
