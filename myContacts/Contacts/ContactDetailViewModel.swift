@@ -21,6 +21,8 @@ class ContactDetailViewModel: NSObject {
 
 extension ContactDetailViewModel: UITableViewDataSource {
     
+    // Enum that organizes each section of the view (and it's order)
+    
     enum Section: Int {
         case Phones = 0
         case Emails = 1
